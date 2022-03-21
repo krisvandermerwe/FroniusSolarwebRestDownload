@@ -20,4 +20,7 @@ The fronius inverter IDs are in the CSV files to ensure accurate processing
  
  Linux and Windoze use different slashes for folders
  If you do not specify the -d parameter, it saves in the current directory
+ 
+ There is a time delay between each - required by Fronius
   
+ 
