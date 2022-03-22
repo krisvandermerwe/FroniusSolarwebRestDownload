@@ -51,12 +51,16 @@ dtm=6
 
 def main(argv):
     outputdir = ''
+    #
+    # If you are not using the commandline, then delete the code
+    # FROM HERE,
     if len(argv)==2 and argv[0] in ["-d", "--dir"] and argv[1][-1] in ['\\',"/"]:
         outputdir = argv[1]
     elif len(argv)>0:
         print ('\nUsage: no parameters saves in current directory, else  \npython3 get_fronius_inverter_data.py -d save_directory_ending_with_a_slash \n')
         sys.exit(2)
-
+    # TO HERE
+    
     r=requests.get(site, headers=auths)
     if r.status_code==200:                    
         tnts=[t['pvSystemId'] for t in r.json()['pvSystems']]
