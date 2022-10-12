@@ -97,15 +97,7 @@ def main(argv):
                     # Date parameters
                     #
                     logdtf="%d-%02d-%02dT00:00:00Z"%(pyr,pmt,dag+1)
-                    tyr=pyr;tmt=pmt; tdag=dag+2
-                    if calendar.monthrange(pyr,pmt)[1]<=dag+1:
-                        tdag=1
-                        if pmt>=12:
-                            tmt=1
-                            tyr=pyr+1
-                        else:
-                            tmt=pmt+1
-                    logdtt  ="%d-%02d-%02dT00:00:00Z"%(tyr,tmt,tdag)
+                    logdtt="%d-%02d-%02dT23:59:59Z"%(pyr,pmt,dag+1)   
                    
                         
                     r=requests.get(site+"/"+t+"/histdata?from="+logdtf+"&to="+logdtt+"&channel="+','.join(ch.keys())+"&limit=288", headers=auths)
